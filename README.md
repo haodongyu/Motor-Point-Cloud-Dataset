@@ -1,6 +1,6 @@
 # README  
-These python program are produced for processing the 3D points cloud from Bosch motors. They can automatically exported CAD model of motors in Blender 2.9 with the help of Motor Factory().
-Afer that they can produce 3D points cloud data and label them with the corresponding numbers with the help of Blensor().  
+These python program are produced for processing the 3D points cloud from Bosch motors. They can automatically exported CAD model of motors in [Blender 2.9](https://www.blender.org/download/releases/2-90/) with the help of [Motor Factory](https://github.com/cold-soda-jay/blenderMotorFactory).
+Afer that they can produce 3D points cloud data and label them with the corresponding numbers with the help of [Blensor](https://www.blensor.org/).  
 
 ## Preparing  
 If the Blensor is aready be downloaded:  
@@ -8,7 +8,7 @@ Put the folder ' utils_haodong ' into path : '' Blensor-1.0.18-Blender-2.79-Winx
 
 ## Get Started  
 ### Creating Motor's CAD models  
-Run the Blender 2.9. Open a text editor in the working space and load the file ' create_TypeA_Obj_new.py '.  
+Run the [Blender 2.9](https://www.blender.org/download/releases/2-90/). Open a text editor in the working space and load the file ' create_TypeA_Obj_new.py '.  
 The path for saving the CAD models can be defined at **line 105 - line 108**.  
 ```
 def main() :
