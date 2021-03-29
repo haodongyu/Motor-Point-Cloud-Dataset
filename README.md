@@ -35,3 +35,7 @@ save_path = "F:\KIT\Masterarbeit\Dateset\Test\TestforScript\PCD" + '\\' + Motor_
 ```
 The ' scan_mode ' has two parameters: **'single' and 'all_folders'**. 'single' means only load one Motor with the clampingsystem. 'all_folders' will load all the motor models from the line 255.  
 The choice of single motor can be defined at **line 366** : parameter **dirs**.
+```
+elif scan_mode == 'single' :
+        dirs = 'MOtor_0001'
+```
