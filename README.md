@@ -3,7 +3,7 @@ These python programs are used for generating and preprocessing the 3D point clo
 Afer that, they can be used for generating and labeling 3D point cloud data with the help of [Blensor](https://www.blensor.org/).  
 
 ## Preparing  
-If the [Blensor](https://www.blensor.org/) is already be installed:  
+If the Blender 2.79 with [Blensor](https://www.blensor.org/) addon is already be installed:  
 Copy the folder **utils_haodong** into path : '' Blensor-1.0.18-Blender-2.79-Winx64\2.79\scripts\addons ''  
 
 ## Get Started  
@@ -33,7 +33,7 @@ The path of saving PCD and Numpy can be defined at line 259.
 ```
 save_path = "F:\KIT\Masterarbeit\Dateset\Test\TestforScript\PCD" + '\\' + Motor_type
 ```
-The ' scan_mode ' has two parameters: **'single' and 'all_folders'**. 'single' means only load one Motor with the clampingsystem. 'all_folders' will load all the motor models from the line 255.  
+The ' scan_mode ' has two parameters: **'single' and 'all_folders'**. 'single' means only load one Motor with the clampingsystem. 'all_folders' will load all the motors from the line 255.  
 The choice of single motor can be defined at **line 366** : parameter **dirs**.
 ```
 elif scan_mode == 'single' :
