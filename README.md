@@ -1,9 +1,9 @@
 # README  
-These python program are produced for processing the 3D points cloud from Bosch motors. They can automatically exported CAD model of motors in [Blender 2.9](https://www.blender.org/download/releases/2-90/) with the help of [Motor Factory](https://github.com/cold-soda-jay/blenderMotorFactory).
-Afer that they can produce 3D points cloud data and label them with the corresponding numbers with the help of [Blensor](https://www.blensor.org/).  
+These python programs are used for generating and preprocessing the 3D point cloud from Bosch motors. They can automatically export CAD model of motors in [Blender 2.9](https://www.blender.org/download/releases/2-90/) with the help of [Motor Factory](https://github.com/cold-soda-jay/blenderMotorFactory).
+Afer that they can be used for generating and labeling 3D point cloud data with the help of [Blensor](https://www.blensor.org/).  
 
 ## Preparing  
-If the Blensor is aready be downloaded:  
+If the Blensor is already be downloaded:  
 Put the folder **utils_haodong** into path : '' Blensor-1.0.18-Blender-2.79-Winx64\2.79\scripts\addons ''  
 
 ## Get Started  
