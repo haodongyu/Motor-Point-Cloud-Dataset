@@ -76,7 +76,8 @@ The following pathes in the **export_png** function need to be defined:
 - **BlenderProc_path** -> The path of `run.py` of BlenderProc  
 - **config_path** -> The path of configuration file, in the form of `xxxx.yaml`
 - **camera_position_seg** -> The path of camera's configuration file  
-- **SaveAsImage_path** -> The path of `SaveAsImage.py` from BlenderProc.  
+- **SaveAsImage_path** -> The path of `SaveAsImage.py` from BlenderProc.   
+
 Remember to keep the space after the string.  
 Then the following pathes and parameters in the main function need to be defined:  
 - **file_path** -> The path of motor's CAD file  
