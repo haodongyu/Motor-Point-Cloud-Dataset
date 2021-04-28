@@ -1,32 +1,27 @@
 # README  
 These python programs are used for generating and preprocessing the 3D point cloud from Bosch motors. They can automatically export CAD model of motors in [Blender 2.9](https://www.blender.org/download/releases/2-90/) with the help of [Motor Factory](https://github.com/cold-soda-jay/blenderMotorFactory).
-Afer that, they can be used for generating and labeling 3D point cloud data with the help of [Blensor](https://www.blensor.org/). We also generalize the RGB-images and semantic maps from the motor's CAD model with the help of [BlenderProc](https://github.com/DLR-RM/BlenderProc).   
+Afer that, they can be used for generating and labeling 3D point cloud data with the help of [Blensor](https://www.blensor.org/). The camera's positon in this process will randomly keep moving in the top of a sphere. The diagram of this filed is showing in the figure_1. We also generalize the RGB-images, normal-images, depth-images and semantic maps from the motor's CAD model with the help of [BlenderProc](https://github.com/DLR-RM/BlenderProc). The results of them is showing in figure_2.   
 
 ## Preparing  
 - If the Blender 2.79 with [Blensor](https://www.blensor.org/) addon is already be installed:  
 Copy the folder **utils_haodong** into path : Blensor-1.0.18-Blender-2.79-Winx64\2.79\scripts\addons  
-- Download the [BlenderProc](https://github.com/DLR-RM/BlenderProc). Then please check the config file in [/BlenderProc/examples/semantic_segmentation](https://github.com/DLR-RM/BlenderProc/blob/main/examples/semantic_segmentation/config.yaml). We have changed **position of camera and configuration of lights** in this folder to suit the position and size of our CAD models.  
+- Download the [BlenderProc](https://github.com/DLR-RM/BlenderProc). Then please check the config file in [/BlenderProc/examples/semantic_segmentation](https://github.com/DLR-RM/BlenderProc/blob/main/examples/semantic_segmentation/config.yaml). We have changed **position of camera and configuration of BlenderLoader** in this folder to suit the position and size of our CAD models. The configuration of our task is be uploaded in this project. Besides that, a new empty binary file `camera_position_zivid` is also needed in this folder, which can dynamically store the random positons of the zivid-vision's camera.    
 ```
-Camera position :
-0.03 -3.8 1.7  1.57 0 0 
+Camera_position :
+0 0 3.9  0 0 -1.57 
 ```  
 ```
-Light configuration:
+BlenderLoder :  
 {
-      "module": "lighting.LightLoader",
+      "module": "loader.BlendLoader",
       "config": {
-        "lights": [
-          {
-            "type": "POINT",
-            "location": [0.9, -7, 0.4],
-            "rotation": [3.142, 1.57, 1.57],
-            "energy": 800
-          }
-        ]
+        "path": "<args:1>",
+        "datablocks": ["objects", "lights"],
+        "obj_types": ["mesh", "light"]
       }
-    },
+ },
 ```  
-The other configuration, such as path to the configuration file, scene file and output directory, will be fitted at one of our main program [export_RGBandSegMap.py](./export_RGBandSegMAP.py) at **line 204 - line206**. 
+The other configuration, such as path to the configuration file, scene file and output directory, will be fitted at one of our main program [export_WholeRGBandSegMap.py](./export_WholeRGBandSegMAP.py) at **line 204 - line206**. 
 
 ## Get Started  
 ### Generating Motor's CAD models  
@@ -47,8 +42,8 @@ def main() :
     number_motor = 5
 ```
 
-### Generating PCD File and Numpy File  
-Run the Blender 2.79 with [Blensor](https://www.blensor.org/) addon. Open a text editor in the working space and load the file [export_PcdAndNumpy.py](./export_PcdAndNumpy.py).  
+### Generating PCD File and Numpy File of whole Scene(Plane, Clampingsystem, motor)  
+Run the Blender 2.79 with [Blensor](https://www.blensor.org/) addon. Open a text editor in the working space and load the file [export_WholePcdAndNumpy.py](./export_WholePcdAndNumpy.py).  
 Then the following pathes and parameters in the main function need to be defined:  
 - **file_path** -> The path of motor's CAD file  
 - **Clamping_dir** -> The path of clampingsystem   
@@ -56,6 +51,7 @@ Then the following pathes and parameters in the main function need to be defined
 - **scan_mode** -> Working mode of the program. It has two parameters: **'single' and 'all_folders'**  
   - **'single'** means only load one Motor with the clampingsystem. The choice of single motor can be defined by the parameter **dirs**. In this mode, the program will not             export PCD and Numpy file. It can be finished manually in the Blensor's Propeties. So this mode is suitable for testing process  
   - **'all_folders'** will load all the motors from the `file_path` with the clampingsystem and export the PCD and Numpy file.  
+The random position of camera will be stored in a csv file `RandomInfor.csv`.
 
 ```
 def main():
@@ -69,6 +65,10 @@ def main():
 elif scan_mode == 'single' :
         dirs = 'MOtor_0001'
 ```  
+### Generating PCD File and Numpy File of only Motor with Background   
+Run the Blender 2.79 with [Blensor](https://www.blensor.org/) addon. Open a text editor in the working space and load the file [export_MotorPcdAndNumpy.py](./export_MotorPcdAndNumpy.py). This programm will read the camera's position frim `RandomInfor.csv`, then scan only the coresponding motor with a plane(background).  
+It working similarly as [export_WholePcdAndNumpy.py](./export_WholePcdAndNumpy.py).The pathes and parameter's configuration can be copyed from [export_WholePcdAndNumpy.py](./export_WholePcdAndNumpy.py).
+
 ### Generating RGB image and Segmentation Map  
 If the [BlenderProc](https://github.com/DLR-RM/BlenderProc) is already be configurated, the Blender2.91 will also be installed with following the directory from the config file in [/BlenderProc/examples/semantic_segmentation](https://github.com/DLR-RM/BlenderProc/blob/main/examples/semantic_segmentation/config.yaml).  
 Run the Blender2.91 and open a text editor like in Blender 2.90/2.79. Then load the file [export_RGBandSegMap.py](./export_RGBandSegMap.py).  
