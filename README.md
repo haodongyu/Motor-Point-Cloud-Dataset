@@ -69,7 +69,7 @@ elif scan_mode == 'single' :
 Run the Blender 2.79 with [Blensor](https://www.blensor.org/) addon. Open a text editor in the working space and load the file [export_MotorPCDandNumpy.py](./export_MotorPCDandNumpy.py). This programm will read the camera's position frim `RandomInfor.csv`, then scan only the coresponding motor with a plane(background).  
 It working similarly as [export_WholePCDandNumpy.py](./export_WholePCDandNumpy.py).The pathes and parameter's configuration can be copyed from [export_WholePCDandNumpy.py](./export_WholePCDandNumpy.py).
 
-### Generating RGB image and Segmentation Map  
+### Generating RGB image and Segmentation Map of whole Scene(Plane, Clampingsystem, motor)   
 If the [BlenderProc](https://github.com/DLR-RM/BlenderProc) is already be configurated, the Blender2.91 will also be installed with following the directory from the config file in [/BlenderProc/examples/semantic_segmentation](https://github.com/DLR-RM/BlenderProc/blob/main/examples/semantic_segmentation/config.yaml).  
 Run the Blender2.91 and open a text editor like in Blender 2.90/2.79. Then load the file [export_WholeRGBandSegMap.py](./export_WholeRGBandSegMap.py).  
 The following pathes in the **export_png** function need to be defined:  
@@ -92,3 +92,5 @@ def main():
     root, Motor_type = os.path.split(file_path)
     save_path = "F:\KIT\Masterarbeit\Dateset\Test\TestforScript\PCD" + '\\' + Motor_type
 ```
+### Generating RGB image and Segmentation Map of only Motor with Background   
+Run the Blender2.91 and open a text editor like in Blender 2.90/2.79. Then load the file [export_MotorRGBandSegMap.py](./export_MotorRGBandSegMap.py). The pathes and parameter's configuration can be copyed from [export_WholeRGBandSegMap.py](./export_WholeRGBandSegMap.py).
