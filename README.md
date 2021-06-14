@@ -43,7 +43,7 @@ def main() :
 ```
 
 ### Generating PCD File and Numpy File of whole Scene(Plane, Clampingsystem, motor)  
-Run the Blender 2.79 with [Blensor](https://www.blensor.org/) addon. Open a text editor in the working space and load the file [export_WholePcdandNumpy.py](./export_WholePcdandNumpy.py).  
+Run the Blender 2.79 with [Blensor](https://www.blensor.org/) addon. Open a text editor in the working space and load the file [export_WholePCDandNumpy.py](./export_WholePCDandNumpy.py).  
 Then the following pathes and parameters in the main function need to be defined:  
 - **file_path** -> The path of motor's CAD file  
 - **Clamping_dir** -> The path of clampingsystem   
@@ -66,12 +66,12 @@ elif scan_mode == 'single' :
         dirs = 'MOtor_0001'
 ```  
 ### Generating PCD File and Numpy File of only Motor with Background   
-Run the Blender 2.79 with [Blensor](https://www.blensor.org/) addon. Open a text editor in the working space and load the file [export_MotorPcdAndNumpy.py](./export_MotorPcdAndNumpy.py). This programm will read the camera's position frim `RandomInfor.csv`, then scan only the coresponding motor with a plane(background).  
-It working similarly as [export_WholePcdandNumpy.py](./export_WholePcdandNumpy.py).The pathes and parameter's configuration can be copyed from [export_WholePcdandNumpy.py](./export_WholePcdandNumpy.py).
+Run the Blender 2.79 with [Blensor](https://www.blensor.org/) addon. Open a text editor in the working space and load the file [export_MotorPCDAndNumpy.py](./export_MotorPCDAndNumpy.py). This programm will read the camera's position frim `RandomInfor.csv`, then scan only the coresponding motor with a plane(background).  
+It working similarly as [export_WholePCDandNumpy.py](./export_WholePCDandNumpy.py).The pathes and parameter's configuration can be copyed from [export_WholePCDandNumpy.py](./export_WholePCDandNumpy.py).
 
 ### Generating RGB image and Segmentation Map  
 If the [BlenderProc](https://github.com/DLR-RM/BlenderProc) is already be configurated, the Blender2.91 will also be installed with following the directory from the config file in [/BlenderProc/examples/semantic_segmentation](https://github.com/DLR-RM/BlenderProc/blob/main/examples/semantic_segmentation/config.yaml).  
-Run the Blender2.91 and open a text editor like in Blender 2.90/2.79. Then load the file [export_RGBandSegMap.py](./export_RGBandSegMap.py).  
+Run the Blender2.91 and open a text editor like in Blender 2.90/2.79. Then load the file [export_WholeRGBandSegMap.py](./export_WholeRGBandSegMap.py).  
 The following pathes in the **export_png** function need to be defined:  
 - **BlenderProc_path** -> The path of `run.py` of BlenderProc  
 - **config_path** -> The path of configuration file, in the form of `xxxx.yaml`
@@ -79,10 +79,10 @@ The following pathes in the **export_png** function need to be defined:
 - **SaveAsImage_path** -> The path of `SaveAsImage.py` from BlenderProc.   
 
 Remember to keep the space after the string.  
-Then the following pathes and parameters in the main function need to be defined:  
+Then the following pathes and parameters in the **main function** need to be defined:  
 - **file_path** -> The path of motor's CAD file  
 - **Clamping_dir** -> The path of clampingsystem  
-- **save_path** -> The path of RGB image and Segmentation output directory. It can be defined as same as in the [export_PcdAndNumpy.py](./export_PcdAndNumpy.py).  
+- **save_path** -> The path of RGB image and Segmentation output directory. It can be defined as same as in the [export_WholePCDandNumpy.py](./export_WholePCDandNumpy.py).  
 ```
 def main():
     scan_mode = 'all_folders'                             # ['single', 'all_folders']
