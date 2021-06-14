@@ -21,7 +21,7 @@ BlenderLoder :
       }
  },
 ```  
-The other configuration, such as path to the configuration file, scene file and output directory, will be fitted at one of our main program [export_WholeRGBandSegMap.py](./export_WholeRGBandSegMAP.py) at **line 204 - line206**. 
+The other configuration, such as path to the configuration file, scene file and output directory, will be fitted at one of our main program [export_WholeRGBandSegMap.py](./export_WholeRGBandSegMap.py) at **line 204 - line206**. 
 
 ## Get Started  
 ### Generating Motor's CAD models  
@@ -43,7 +43,7 @@ def main() :
 ```
 
 ### Generating PCD File and Numpy File of whole Scene(Plane, Clampingsystem, motor)  
-Run the Blender 2.79 with [Blensor](https://www.blensor.org/) addon. Open a text editor in the working space and load the file [export_WholePcdAndNumpy.py](./export_WholePcdAndNumpy.py).  
+Run the Blender 2.79 with [Blensor](https://www.blensor.org/) addon. Open a text editor in the working space and load the file [export_WholePcdandNumpy.py](./export_WholePcdandNumpy.py).  
 Then the following pathes and parameters in the main function need to be defined:  
 - **file_path** -> The path of motor's CAD file  
 - **Clamping_dir** -> The path of clampingsystem   
@@ -67,7 +67,7 @@ elif scan_mode == 'single' :
 ```  
 ### Generating PCD File and Numpy File of only Motor with Background   
 Run the Blender 2.79 with [Blensor](https://www.blensor.org/) addon. Open a text editor in the working space and load the file [export_MotorPcdAndNumpy.py](./export_MotorPcdAndNumpy.py). This programm will read the camera's position frim `RandomInfor.csv`, then scan only the coresponding motor with a plane(background).  
-It working similarly as [export_WholePcdAndNumpy.py](./export_WholePcdAndNumpy.py).The pathes and parameter's configuration can be copyed from [export_WholePcdAndNumpy.py](./export_WholePcdAndNumpy.py).
+It working similarly as [export_WholePcdandNumpy.py](./export_WholePcdandNumpy.py).The pathes and parameter's configuration can be copyed from [export_WholePcdandNumpy.py](./export_WholePcdandNumpy.py).
 
 ### Generating RGB image and Segmentation Map  
 If the [BlenderProc](https://github.com/DLR-RM/BlenderProc) is already be configurated, the Blender2.91 will also be installed with following the directory from the config file in [/BlenderProc/examples/semantic_segmentation](https://github.com/DLR-RM/BlenderProc/blob/main/examples/semantic_segmentation/config.yaml).  
