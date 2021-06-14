@@ -1,1 +1,1 @@
-dfgsg 
+Here is the condif files for BlendProc. You can download it and save it in your local position. Remember to change the parameters in the [export_WholeRGBandSegMap.py](./export_WholeRGBandSegMap.py) and [export_MotorRGBandSegMap.py](./export_MotorRGBandSegMap.py).
