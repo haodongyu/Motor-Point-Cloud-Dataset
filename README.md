@@ -66,7 +66,7 @@ elif scan_mode == 'single' :
         dirs = 'MOtor_0001'
 ```  
 ### Generating PCD File and Numpy File of only Motor with Background   
-Run the Blender 2.79 with [Blensor](https://www.blensor.org/) addon. Open a text editor in the working space and load the file [export_MotorPCDAndNumpy.py](./export_MotorPCDAndNumpy.py). This programm will read the camera's position frim `RandomInfor.csv`, then scan only the coresponding motor with a plane(background).  
+Run the Blender 2.79 with [Blensor](https://www.blensor.org/) addon. Open a text editor in the working space and load the file [export_MotorPCDandNumpy.py](./export_MotorPCDandNumpy.py). This programm will read the camera's position frim `RandomInfor.csv`, then scan only the coresponding motor with a plane(background).  
 It working similarly as [export_WholePCDandNumpy.py](./export_WholePCDandNumpy.py).The pathes and parameter's configuration can be copyed from [export_WholePCDandNumpy.py](./export_WholePCDandNumpy.py).
 
 ### Generating RGB image and Segmentation Map  
