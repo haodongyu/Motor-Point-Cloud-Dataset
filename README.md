@@ -93,4 +93,24 @@ def main():
     save_path = "F:\KIT\Masterarbeit\Dateset\Test\TestforScript\PCD" + '\\' + Motor_type
 ```
 ### Generating RGB image and Segmentation Map of only Motor with Background   
-Run the Blender2.91 and open a text editor like in Blender 2.90/2.79. Then load the file [export_MotorRGBandSegMap.py](./export_MotorRGBandSegMap.py). The pathes and parameter's configuration can be copyed from [export_WholeRGBandSegMap.py](./export_WholeRGBandSegMap.py).
+Run the Blender2.91 and open a text editor like in Blender 2.90/2.79. Then load the file [export_MotorRGBandSegMap.py](./export_MotorRGBandSegMap.py). The pathes and parameter's configuration can be copyed from [export_WholeRGBandSegMap.py](./export_WholeRGBandSegMap.py).  
+
+## Get the synthetic data for training  
+### Export PCD and Numpy file for whole scene
+If the motor data in the form of .mtl and .obj is already finished. Then run the [export_NoiseWholePCDandNumpy.py](./export_NoiseWholePCDandNumpy.py). Then the noised data which special for the training of Neural Network will be exported. The noise is following this random field:  
+
+### Cut the numpy file from whole scene into cuboid 
+If you want to get the **training data**:
+```
+python cut_WholePCDandNumpy.py
+```
+else if you want to cut the **test data** from Zivid:
+```
+python cut_labeledZivid.py
+python cut_Zivid.py                # depends on the zivid PCD is labeled or not
+```
+Then these numpy files can be used in [SOTA-Networks-for-Master-Thesis-Semantic-segmentation-on-Bosch-Motors](https://github.com/haodongyu/SOTA-Networks-for-Master-Thesis-Semantic-segmentation-on-Bosch-Motors).  
+Remember to check the numpy file in the form of :  
+```
+x, y, z, r, g, b, label
+```
