@@ -97,7 +97,11 @@ Run the Blender2.91 and open a text editor like in Blender 2.90/2.79. Then load 
 
 ## Get the synthetic data for training  
 ### Export PCD and Numpy file for whole scene
-If the motor data in the form of .mtl and .obj is already finished. Then run the [export_NoiseWholePCDandNumpy.py](./export_NoiseWholePCDandNumpy.py). Then the noised data which special for the training of Neural Network will be exported. The noise is following this random field:  
+If the motor data in the form of .mtl and .obj is already finished. Then run the [export_NoiseWholePCDandNumpy.py](./export_NoiseWholePCDandNumpy.py).  
+```
+python export_NoiseWholePCDandNumpy.py
+```
+The noised data which special for the training of Neural Network will be exported. The variations is following this random field:  
 
 | Variables| explain| random field|
 | :-: | :-: |:-|
@@ -105,6 +109,7 @@ If the motor data in the form of .mtl and .obj is already finished. Then run the
 | random_Clamping_position| the positionof the two parts of the Clamping system | Base_part: x~(-0.1, 0.3), y~(-0.2, 0.2) <br> Slind_part: x~(-0.655, 0.345) <br> Cyinder: x~(-0.15, 0.05) |  
 | sigma | sigma parameter of Gaussian Noise | (0.01, 0.02) |  
 | random_cut_bottom | the lower limit when cutting the cuboid | (0, 1/3) |  
+| random_camera_position | the position of the camera <br> It is transformed in a Curved surface | r~(2.8, 3.2) <br> theta~(0, 15 digree) <br> phi~(0, 180 digree) |  
 
 
 ### Cut the numpy file from whole scene into cuboid 
