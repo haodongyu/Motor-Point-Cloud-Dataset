@@ -99,6 +99,14 @@ Run the Blender2.91 and open a text editor like in Blender 2.90/2.79. Then load 
 ### Export PCD and Numpy file for whole scene
 If the motor data in the form of .mtl and .obj is already finished. Then run the [export_NoiseWholePCDandNumpy.py](./export_NoiseWholePCDandNumpy.py). Then the noised data which special for the training of Neural Network will be exported. The noise is following this random field:  
 
+| Variables| explain| random field|
+| :-: | :-: |:-|
+| random_cover_position| the positon of a surfuce over the motor | x~(-0.2, 0.6), y~(-0.6, -0.15) |  
+| random_Clamping_position| the positionof the two parts of the Clamping system | Base_part: x~(-0.1, 0.3), y~(-0.2, 0.2) <br> Slind_part: x~(-0.655, 0.345) <br> Cyinder: x~(-0.15, 0.05) |  
+| sigma | sigma parameter of Gaussian Noise | (0.01, 0.02) |  
+| random_cut_bottom | the lower limit when cutting the cuboid | (0, 1/3) |  
+
+
 ### Cut the numpy file from whole scene into cuboid 
 If you want to get the **training data**:
 ```
